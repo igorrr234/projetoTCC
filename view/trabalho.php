@@ -1,0 +1,107 @@
+<?php
+session_start();
+include_once('../view/pagina.php');
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo do Trabalho - Aprenda Fácil</title>
+  <style>
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #007BFF;
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 5px;
+    }
+
+    h1 {
+      color: #007BFF;
+      padding-bottom: 5px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-top: 5px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .highlight {
+      background-color: #FFFFCC;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+
+    .quote {
+      border-left: 4px solid #FFA500;
+      padding-left: 10px;
+      margin: 10px 0;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1>Mundo do Trabalho</h1>
+    <h2>Definição</h2>
+    <p>O mundo do trabalho é um espaço dinâmico onde indivíduos dedicam tempo e esforço para realizar atividades que contribuem para a produção de bens e serviços. Além de ser uma fonte de sustento, o trabalho desempenha um papel fundamental na identidade e realização pessoal.</p>
+
+    <div class="highlight">
+      <p>O trabalho não é apenas uma obrigação, mas também uma oportunidade de crescimento e expressão individual.</p>
+    </div>
+
+    <h2>Transformações no Ambiente Profissional</h2>
+    <p>O avanço tecnológico e as mudanças econômicas têm transformado o cenário profissional. Novas profissões surgem, enquanto outras se adaptam às demandas do mercado. A flexibilidade e a busca por equilíbrio entre vida pessoal e profissional tornam-se temas centrais.</p>
+
+    <div class="quote">
+      <p><em>"Adaptabilidade é a chave para prosperar em um mundo do trabalho em constante evolução."</em></p>
+    </div>
+
+    <h2>Desafios Atuais</h2>
+    <p>Desafios como desigualdade salarial, discriminação no ambiente de trabalho e condições laborais precárias persistem. A busca por soluções que promovam a igualdade e o respeito é essencial para construir um ambiente de trabalho mais justo e inclusivo.</p>
+
+    <div class="image-container">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQYAAADBCAMAAAAace62AAACGVBMVEX///9Mm7kEFygtPlAAp50AlET60iPR09QAaDgjHyAkNUf/xaiezOR1TCnEmWwAAAAEACXBk2OiUBYoM0Xz6+C7vb8AhED4+flDl7YAEyVvQxluQBAAAAe5ppgjMT/d2NWFZEkeDQW41eDb3N1BepGCgYDs7e/v6OR4TSUdj40vNkvHysu0trjk5ub60ACamZo4P0kslk8+cEQkZ1H++O2kmWcfSkNSUFD4lQCx1+osOEUYL0QSJTxgeG/75qTX6+95vsmQutAuKi7RqYNuTTE3QEvE3OUAlapNtLtqaWikjGM0S1trrsUrV3H9vxWArMQWSWUAABZURj0bAABpcWP32F46prdxiJcYEhQDHigZs60EVzRweYNihJ5ai57733L88cz6uGi33OD61j36vHv96dP5pT35pAD806P9lQD6sgDpsCdvucWYzNVEaoBSXWmLxqPXup0BeDx1o4VlcXz6447977z62Gb53oH6rlT65JhKSEj94Mr+9936zHf7zpr6tV76xVKqws384LffrG++wbP5pUHpn03UpiLGnDC1yb7lgDFFwc67bFnHlIyxpa/bhUeVqbi4lZkAOVfftHbSvYyRiHPKwaeselyjWimvnJCqeFPcqYuoa0PJpJCMf3r9z7fN5Nd7v5Z5lnajtKJEq3Sy2spntqlHi2Zar4KV0c4AjCwAWx2Jto0HTDSRimGAs6wdQEA3JBnzUcZuAAAgAElEQVR4nO2di2MTV3bGRxijWIiYxMyODI4dLHmglWRB6xTLUhnLBBlHtmWSYpPENiD8ZLEEwXkQoGZFSLZst63KBghhWcMGskD21b+w575m7jw1I9nY2/Ltxszrztz7m3POPffOSBKEV9pYXTt86sTZs2dPnDp8eqOrsmG69um27u7ubVjw7xfXNrpCG6GeLxiCbYzEqZ6NrtRL12fbEISzn5869bkGYttnG12tl6xPAcKJTw9jneIs4tRGV+yl6lR394kvDx82YdjWfWKjq/YSBWHhc0zgy1Off35CHyH+/3A43L3tFDaDs93zM5fPbRu9PDM/qnL4dKOr50n+GJFEViW6GqW7o7GwXcke8AhkCdtGR+egb5g5NwPbvj7HQHSfXv/K1y/abCFx5RDSFZmsynQ1oe5u9tuc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" alt="Imagem representativa do mundo do trabalho">
+    </div>
+
+    <h2>Futuro do Trabalho</h2>
+    <p>A automação, inteligência artificial e outras inovações moldam o futuro do trabalho. A preparação para as mudanças e a promoção de ambientes colaborativos tornam-se cruciais para enfrentar os desafios e criar oportunidades.</p>
+
+    <div class="highlight">
+      <p>O futuro do trabalho é moldado por nossas ações presentes. Investir em educação e habilidades é essencial para prosperar nas transformações por vir.</p>
+    </div>
+
+    <h2>Conclusão</h2>
+    <p>O mundo do trabalho é um espaço dinâmico e desafiador. Ao enfrentar os desafios com resiliência e inovação, podemos criar um ambiente profissional mais justo, inclusivo e sustentável.</p>
+  </main>
+
+</body>
+
+</html>

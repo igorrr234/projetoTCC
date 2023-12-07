@@ -1,87 +1,158 @@
+<?php
+
+session_start();
+
+include_once('../view/pagina.php')
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/padrao.css">
-    <title>Sobre - Aprenda Fácil</title>
-    <link rel="icon" href="../public/img/a.png">
+    <title>Sobre Nós - Aprenda Fácil</title>
     <style>
-        /* Reset de estilos padrão do navegador */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Estilo do corpo da página */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
         }
 
-        /* Estilo do cabeçalho */
-        header {
-            background-color: #007BFF;
-            color: #fff;
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
             padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section p {
+            margin-top: 5px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .team {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            width: 80px;
-        }
-
-        .logo h1 {
-            font-size: 40px;
-            margin-left: 10px;
-        }
-
-        /* Estilo da seção "Entre em Contato Conosco" */
-        #sobre {
-            background-color: #4f4f4f;
-            color: #fff;
-            text-align: center;
-            padding: 40px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #sobre h2 {
-            font-size: 2rem;
+        .team-member {
+            flex: 0 0 calc(33.33% - 20px);
             margin-bottom: 20px;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
-        #sobre p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+        .values {
+            margin-top: 20px;
+        }
+
+        .values ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .values li {
+            margin-bottom: 10px;
+        }
+
+        .values h3 {
+            margin-bottom: 10px;
+        }
+
+        .curiosities {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .curiosity {
+            flex: 0 0 calc(33.33% - 20px);
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            padding: 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sobre {
+            justify-content: center;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <div class="logo">
-                <img src="../public/img/a.png" alt="Logo da Plataforma">
-            </div>
-            <h1>Aprenda Fácil</h1>
-        </div>
-    </header>
-    <section id="sobre">
-        <h2>Sobre Nós</h2>
-        <p>Estamos aqui para responder a todas as suas perguntas. Utilize o formulário abaixo ou entre em contato por e-mail.</p>
+
+
+    <section>
+        <h2>Nossa História</h2>
+        <p>Há aproximadamente quatro meses, dois jovens uniram forças com a nobre missão de conceber um website dedicado à aprendizagem. Desde então, enfrentamos desafios, celebramos conquistas e experimentamos um notável crescimento conjunto. Assim, orgulhosamente apresentamos o Aprenda Fácil, uma plataforma de ensino online que se destaca pela sua facilidade e praticidade.</p>
     </section>
+
+    <section>
+        <h2>Nossa Missão</h2>
+        <p>Na Aprenda Fácil, buscamos incessantemente elevar o nível de ensino, visando alcançar um público diversificado por meio da internet. Acreditamos que a dedicação e a busca constante, o desejo de aprender, são os elementos que nos motivam a criar e inovar continuamente.</p>
+    </section>
+
+    <section>
+        <h2>Quem Somos</h2>
+        <div class="team">
+            <div class="team-member">
+                <h3>Andreo Figueiredo
+                    <br>
+                    Igor Aparecido
+                </h3>
+            </div>
+        </div>
+        <div class="values">
+            <h3>Valores</h3>
+            <ul>
+                <li><strong>Inovação:</strong> Estamos sempre buscando maneiras criativas de superar expectativas.</li>
+                <li><strong>Integridade:</strong> Comprometemo-nos a agir com ética e transparência em todos os aspectos.</li>
+                <li><strong>Comunidade:</strong> Valorizamos a colaboração e contribuímos para o acesso das comunidades que servimos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Curiosidades</h2>
+        <div class="curiosities">
+            <div class="curiosity">
+                <h3>Há quanto tempo estamos ativos?</h3>
+                <p>Atualmente 1 dia</p>
+            </div>
+            <div class="curiosity">
+                <h3>Qual é o objetivo principal das aulas?</h3>
+                <p>Atender às necessidades educacionais dos estudantes do Ensino Médio.</p>
+            </div>
+            <div class="curiosity">
+                <h3>Prêmios Recebidos</h3>
+                <p>Aprovação TCC</p>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>

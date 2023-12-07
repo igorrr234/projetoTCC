@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+include_once('../view/pagina.php')
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,17 +15,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/padrao.css">
-    <title>Cursos disponíveis - Aprenda Fácil</title>
+    <title>Disciplinas - Aprenda Fácil</title>
     <link rel="icon" href="../public/img/a.png">
     <style>
-        /* Reset de estilos padrão do navegador */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Estilo do corpo da página */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -23,32 +32,6 @@
             margin: 0;
             padding: 0;
         }
-
-        /* Estilo do cabeçalho */
-        header {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            width: 80px;
-        }
-
-        .logo h1 {
-            font-size: 40px;
-            margin-left: 10px;
-        }
-
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
 
         nav ul {
             list-style: none;
@@ -70,28 +53,34 @@
         }
 
         #conteudo-cursos h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.3rem;
+            margin-bottom: 25px;
             text-align: center;
         }
 
         .cursos-disponiveis {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 20px;
+            grid-gap: 17px;
         }
 
         .curso {
             background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             padding: 20px;
+            border-radius: 5px;
+        }
+
+        .curso:hover {
+            cursor: pointer;
         }
 
         .curso img {
-            width: 100%;
+            height: 145px;
+            width: 90%;
             max-height: 200px;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 7px;
         }
 
         .curso p {
@@ -111,41 +100,69 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <a href="../public/index.php"><img src="../public/img/a.png" alt="Logo da Plataforma"></a>
-            <h1>Aprenda Fácil</h1>
-        </div>
-    </header>
 
     <section id="conteudo-cursos">
-        <h1>Conteúdos Gerais</h1>
-
+        <h1>Disciplinas</h1>
         <div class="cursos-disponiveis">
-            <!-- História -->
+
             <div class="curso">
-                <a href="../view/devweb.php"><img src="../public/img/hiss.png" alt="Conteúdo"></a>
-                <center><h3>História</h3></center>
+                <a href="../view/hist.php"><img src="https://static.todamateria.com.br/img/categories/historia.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>História</h3>
+                </center>
                 <p>A história humana é uma narrativa complexa de eventos, culturas e transformações que moldaram o mundo. </p>
             </div>
 
-            <!-- Geografia -->
             <div class="curso">
-                <a href="../view/mark.php"><img src="../public/img/geo.jpg" alt="Conteúdo"></a>
-                <center><h3>Geografia</h3></center>
+                <a href="../view/geo.php"><img src="https://static.todamateria.com.br/img/categories/geografia.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>Geografia</h3>
+                </center>
                 <p>O estudo da Terra, abrangendo a diversidade de paisagens, clima e fenômenos naturais. </p>
             </div>
 
-            <!-- Curso 3: Design Gráfico -->
             <div class="curso">
-                <a href="../view/design.php"><img src="../public/img/fiss.png" alt="Conteúdo"></a>
-                <center><h3>Física</h3></center>
+                <a href="../view/fisica.php"><img src="https://static.todamateria.com.br/img/categories/fisica.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>Física</h3>
+                </center>
                 <p>A ciência que investiga as leis fundamentais do universo, desde partículas subatômicas até a vastidão cósmica.</p>
             </div>
+
             <div class="curso">
-                <a href="../view/devsoft.php"><img src="../public/img/mat.jpg" alt="Conteúdo"></a>
-                <h3>Matemática</h3>
+                <a href="../view/mat.php"><img src="https://static.todamateria.com.br/img/categories/matematica.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>Matemática</h3>
+                </center>
                 <p>A Matemática é a linguagem universal que desvenda padrões, relações e estruturas abstratas.</p>
+            </div>
+            <div class="curso">
+                <a href="../view/filosofia.php"><img src="https://static.todamateria.com.br/img/categories/filosofia.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>Filosofia</h3>
+                </center>
+                <p>A Filosofia é uma disciplina fascinante que nos convida a explorar as fronteiras do pensamento humano.</p>
+            </div>
+            <div class="curso">
+                <a href="../view/sociologia.php"><img src="https://static.todamateria.com.br/img/categories/sociologia.png    " alt="Conteúdo"></a>
+                <center>
+                    <h3>Sociologia</h3>
+                </center>
+                <p>A Sociologia é uma das ciências humanas que estuda a sociedade, ou seja, estuda o comportamento humano em função do meio e os processos que interligam os indivíduos em associações, grupos e instituições.</p>
+            </div>
+            <div class="curso">
+                <a href="../view/bio.php"><img src="https://static.todamateria.com.br/img/categories/biologia.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>Biologia</h3>
+                </center>
+                <p>Estudar Biologia é uma jornada de descoberta que nos leva desde os processos microscópicos que sustentam a vida até os específicos macroscópicos que moldam ecossistemas inteiros. </p>
+            </div>
+            <div class="curso">
+                <a href="../view/qui.php"><img src="https://static.todamateria.com.br/img/categories/quimica.png" alt="Conteúdo"></a>
+                <center>
+                    <h3>Química</h3>
+                </center>
+                <p>A Química é uma ciência que desvenda os segredos da matéria e das transformações que ela pode sofrer. Desde os elementos fundamentais até as moléculas mais complexas.</p>
             </div>
         </div>
     </section>

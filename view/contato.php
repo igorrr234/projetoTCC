@@ -1,29 +1,60 @@
 <?php
+require_once('../action/classes.php');
+require_once('../database/conexao.php');
 
 
+session_start();
+
+include_once('../view/pagina.php');
+
+
+$database = new Database();
+$db = $database->Conexao();
+$usuario2 = new Usuario2($db);
+
+
+
+if (isset($_POST['enviar'])) {
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $assunto = $_POST['assunto'];
+    $mensagem = $_POST['mensagem'];
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        if ($usuario2->formContato($nome, $email, $assunto, $mensagem)) {
+            print "<script>alert('Formulário enviado com sucesso!')</script>";
+        } else {
+            print "";
+        }
+    } else {
+        print "<script>alert('Erro!.')</script>";
+    }
+}
 
 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/padrao.css">
-    <title>Fale Conosco - Aprenda Fácil</title>
+    <title>Contato - Aprenda Fácil</title>
     <link rel="icon" href="../public/img/a.png">
     <script src="javinha.js"></script>
 </head>
 
 <style>
-    /* Reset de estilos padrão do navegador */
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    /* Estilo do corpo da página */
     body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;
@@ -32,33 +63,6 @@
         padding: 0;
     }
 
-    header {
-        background-color: #007BFF;
-        color: #fff;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo img {
-        width: 100px;
-    }
-
-    /* Estilo do título ao lado da logo */
-    .logo h1 {
-        font-size: 40px;
-        margin-left: 10px;
-        color: #fff;
-    }
-
-    /* Estilo da seção "Entre em Contato Conosco" */
     #contato {
         background-color: #4f4f4f;
         color: #fff;
@@ -77,7 +81,6 @@
         margin-bottom: 30px;
     }
 
-    /* Estilo do formulário de contato */
     #contato-form {
         text-align: center;
         padding: 20px;
@@ -128,22 +131,26 @@
         cursor: pointer;
     }
 
-    /* Estilo do rodapé */
     footer {
         text-align: center;
         padding: 20px;
         background-color: #007BFF;
         color: #fff;
     }
+
+    .form button {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin: 20px auto;
+        cursor: pointer;
+        display: block;
+    }
 </style>
 
 <body>
-    <header>
-        <div class="logo">
-            <a href="../public/index.php"><img src="../public/img/a.png" alt="Logo da Plataforma"></a>
-            <h1>Aprenda Fácil</h1>
-        </div>
-    </header>
 
     <section id="contato">
         <h2>Entre em Contato Conosco</h2>
@@ -166,7 +173,7 @@
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
-                <input type="submit" value="Enviar" class="cta-button">
+                <button type="submit" name="enviar">Enviar</button>
             </form>
         </div>
     </section>

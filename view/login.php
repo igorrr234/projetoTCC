@@ -10,15 +10,70 @@ $usuario = new Usuario($db);
 
 if (isset($_POST['entrar'])) {
 
-    $nome = $_POST['nome'];
+
+    $login = $_POST['nome'];
     $senha = $_POST['senha'];
 
-    if ($usuario->logar($nome, $senha)) {
-        $_SESSION['nome'] = $nome;
+    if ($usuario->logar($login, $senha)) {
+        $_SESSION['nome'] = $login;
+        $_SESSION['email'] = $login;
+
         header("Location:../public/index.php");
         exit();
     } else {
-        print "<script>alert('Seu email e senha não correspondem.Tente novamente.')</script>";
+        echo '
+        <style>
+          .custom-error-alert {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 2s ease-in-out, fadeOut 2s ease-in-out 3s forwards;
+          }
+    
+          .error-symbol {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 24px;
+          }
+    
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+    
+          @keyframes fadeOut {
+            from {
+              opacity: 1;
+            }
+            to {
+              opacity: 0;
+            }
+          }
+        </style>
+        <div class="custom-error-alert">
+          <span class="error-symbol">&#10060;</span>
+          Erro! O email ou a senha insirida não esta correto.
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var errorAlertBox = document.querySelector(".custom-error-alert");
+            errorAlertBox.style.display = "block";
+          });
+        </script>
+      ';
     }
 }
 ?>
@@ -56,7 +111,7 @@ if (isset($_POST['entrar'])) {
     }
 
     .logo img {
-        width: 100px;
+        width: 85px;
     }
 
     .logo {
@@ -65,7 +120,7 @@ if (isset($_POST['entrar'])) {
     }
 
     .logo h1 {
-        font-size: 40px;
+        font-size: 2.5rem;
         margin-left: 10px;
         color: #fff;
     }
@@ -185,7 +240,7 @@ if (isset($_POST['entrar'])) {
     <div class="login-form">
         <h2>Faça Login</h2>
         <form action="" method="POST">
-            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="text" name="nome" placeholder="Nome / Email" required>
 
             <input type="password" id="senha" name="senha" placeholder="Senha" required>
 
